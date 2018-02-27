@@ -1,6 +1,6 @@
 {
   "name": "node-cmake-generator",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -9,9 +9,9 @@
   "author": "lev-kazakov <lev.kazakov@gmail.com>",
   "license": "MIT",
   "bin": {
-    "": "./cli.js"
+    "node-cmake-generator": "./cli.js"
   },
-  "description": "generates camkelists for node source",
+  "description": "CMakeLists generator for Node.js sources",
   "bugs": {
     "url": "https://github.com/lev-kazakov/node-cmake-generator/issues"
   },
