@@ -7,7 +7,7 @@
 - [Solution](#solution)
 - [Instructions](#instructions)
 - [Troubleshoot](#troubleshoot)
-- [Tested against](#tested-against)
+- [Supported versions](#supported-versions)
 - [Issues regarding node's build system](#issues-regarding-nodes-build-system)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -28,6 +28,7 @@ Use [CMake](https://cmake.org/) to build node on [CLion](https://www.jetbrains.c
 
 ## Instructions
 
+1. install [Xcode](https://developer.apple.com/xcode/)
 1. [clone](https://github.com/nodejs/node/blob/master/doc/guides/contributing/pull-requests.md#step-1-fork) your node fork
 1. `cd node`
 1. `npm install -g node-cmake-generator`
@@ -46,12 +47,12 @@ One option is run CMake with a `-j 1` flag:<br />
 ![](http://i.imgur.com/7UeB7MN.png)
 An alternative is to build the *icudata__icutrim* target independently and only then build the *node* target.
 
-## Tested against
+## Supported versions
 
-* macOS: Sierra 10.12.4, High Sierra 10.13.3
-* CLion: 2017.1.3, 2017.3
-* CMake: v3.7.2, v3.9.4
-* node: [v8.7.0](https://github.com/nodejs/node/tree/v8.7.0), [v8.9.0](https://github.com/nodejs/node/tree/v8.9.0), [v8.9.4](https://github.com/nodejs/node/tree/v8.9.4) 
+* node: 8.7.0, 8.9.0, 8.9.4, 12.0.0
+* macOS: Sierra 10.12.4, High Sierra 10.13.3, 10.13.6
+* CLion: 2017.1.3, 2017.3, 2018.1
+* CMake: 3.7.2, 3.9.4, 3.10.2
 
 ## Issues regarding node's build system
 * https://github.com/nodejs/NG/issues/24

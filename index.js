@@ -66,8 +66,8 @@ function deployLists(nodeDir, cmakeConfig) {
   })
 
   function fixLine(line) {
-    line = line.replace(/--whole-archive/g, '-all_load')
-    line = line.replace(/--no-whole-archive/g, '-noall_load')
+    line = line.replace(/--whole-archive/g, '-force_load')
+    line = line.replace(/-Wl,--no-whole-archive/g, '')
     line = line.replace('"../../', '"')
     line = line.replace('${CMAKE_CURRENT_LIST_DIR}/../..', '${CMAKE_CURRENT_LIST_DIR}')
     line = line.replace('  "src/tracing/trace_event.hsrc/util.h"\n', '  "src/tracing/trace_event.h"\n  "src/util.h"\n')
