@@ -2,6 +2,7 @@ const path = require('path')
 const {spawn} = require('child_process')
 const fs = require('fs')
 const readline = require('readline')
+const {EOL} = require('os')
 
 module.exports = {generateCMakeLists}
 
@@ -70,17 +71,15 @@ function deployLists(nodeDir, cmakeConfig) {
     line = line.replace(/-Wl,--no-whole-archive/g, '')
     line = line.replace('"../../', '"')
     line = line.replace('${CMAKE_CURRENT_LIST_DIR}/../..', '${CMAKE_CURRENT_LIST_DIR}')
-    line = line.replace('  "src/tracing/trace_event.hsrc/util.h"\n', '  "src/tracing/trace_event.h"\n  "src/util.h"\n')
+    line = line.replace('  "src/tracing/trace_event.hsrc/util.h"', `  "src/tracing/trace_event.h"${EOL}  "src/util.h"`)
     line = line.replace('"deps/include/v8-inspector.h"', '"deps/v8/include/v8-inspector.h"')
     line = line.replace('"deps/include/v8-inspector-protocol.h"', '"deps/v8/include/v8-inspector-protocol.h"')
     line = line.replace('"${builddir}/obj.target/node/gen', '"${builddir}/CMakeFiles/node.dir/obj/gen')
     line = line.replace('"${builddir}/obj.target/node', '"${builddir}/CMakeFiles/node.dir')
-    this.output.write(`${line}\n`)
+    line = line.replace('add_library(v8_external_snapshot STATIC)', 'add_library(v8_external_snapshot STATIC "deps/v8/src/setup-isolate-deserialize.cc" "deps/v8/src/snapshot/natives-external.cc" "deps/v8/src/snapshot/snapshot-external.cc")')
+    line = line.replace('  "deps/v8/src/parsing/preparse-data-format.h"', '')
+    this.output.write(`${line}${EOL}`)
   }
 
-  return new Promise(resolve => {
-    readFile
-      .on('line', fixLine)
-      .on('close', resolve)
-  })
+  return new Promise(resolve => readFile.on('line', fixLine).on('close', resolve))
 }

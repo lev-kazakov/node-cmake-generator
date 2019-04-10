@@ -49,10 +49,10 @@ An alternative is to build the *icudata__icutrim* target independently and only 
 
 ## Supported versions
 
-* node: 8.7.0, 8.9.0, 8.9.4, 12.0.0
+* node: 8.7.0, 8.9.0, 8.9.4, 12.0.0, 10.15.4
 * macOS: Sierra 10.12.4, High Sierra 10.13.3, 10.13.6
-* CLion: 2017.1.3, 2017.3, 2018.1
-* CMake: 3.7.2, 3.9.4, 3.10.2
+* CLion: 2017.1.3, 2017.3, 2018.1, 2019.1
+* CMake: 3.7.2, 3.9.4, 3.10.2, 3.13.4
 
 ## Issues regarding node's build system
 * https://github.com/nodejs/NG/issues/24
